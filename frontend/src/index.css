@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 15%; /* Dark gray for better readability */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%; /* Dark gray for better readability */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%; /* Dark gray for better readability */
+    --primary: 214 100% 32%; /* Greek Flag Blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 93% 47%; /* Gold */
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 35%;
+    --accent: 214 100% 32%; /* Blue accent */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 214 100% 32%; /* Blue ring */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 214 100% 50%; /* Lighter Blue for dark mode */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 93% 47%; /* Gold */
+    --secondary-foreground: 0 0% 0%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 214 100% 50%; /* Blue accent */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 214 100% 50%; /* Blue ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Aegis Bank styles - Blue Theme */
+.aegis-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+.aegis-blue {
+  color: #2563eb;
+}
+
+.aegis-bg-blue {
+  background-color: #2563eb;
+}
+
+.aegis-gold {
+  color: #1d4ed8;
+}
+
+.aegis-bg-gold {
+  background-color: #1d4ed8;
+}
+
+.aegis-navbar-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+/* Dark mode Aegis Bank styles - Blue Theme */
+.dark .aegis-gradient {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+.dark .aegis-blue {
+  color: #1d4ed8;
+}
+
+.dark .aegis-bg-blue {
+  background-color: #1d4ed8;
+}
+
+.dark .aegis-gold {
+  color: #1e40af;
+}
+
+.dark .aegis-bg-gold {
+  background-color: #1e40af;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0D47A1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1976D2;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1976D2;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #0D47A1;
+}
+
+
+
+
+
+

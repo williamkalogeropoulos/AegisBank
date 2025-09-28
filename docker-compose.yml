@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: aegis-bank-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: aegis_bank
+      MYSQL_USER: aegis
+      MYSQL_PASSWORD: aegis123
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - aegis-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: aegis-bank-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/aegis_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+      SERVER_PORT: 8081
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+    networks:
+      - aegis-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: aegis-bank-frontend
+    environment:
+      VITE_API_URL: http://localhost:8081
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - aegis-network
+
+volumes:
+  mysql_data:
+
+networks:
+  aegis-network:
+    driver: bridge

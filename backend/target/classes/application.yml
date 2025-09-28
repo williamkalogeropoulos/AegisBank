@@ -1,0 +1,45 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: aegis-bank-backend
+  
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/aegis_bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+  
+  
+  security:
+    user:
+      name: admin
+      password: admin123
+
+# JWT Configuration
+jwt:
+  secret: aegis-bank-secret-key-2024-very-secure-and-long
+  expiration: 900000 # 15 minutes
+  refresh-expiration: 604800000 # 7 days
+
+# CORS Configuration
+cors:
+  allowed-origins: http://localhost:5173,http://localhost:3000
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  allow-credentials: true
+
+logging:
+  level:
+    com.aegisbank: DEBUG
+    org.springframework.security: DEBUG
